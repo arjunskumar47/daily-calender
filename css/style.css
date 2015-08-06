@@ -15,8 +15,12 @@ strong {
 .row {
 	display: block;
 }
-.clearfix {
-	clear: both;
+.clearfix:before,.clearfix:after{
+	content:" ";
+	display:table;
+}
+.clearfix:after{
+	clear:both;
 }
 .container {
 	max-width: 980px;
@@ -159,8 +163,14 @@ strong {
 	top: 50px;
 	left: 80px;
 }
-.event-details-inner {
+.event-details {
 	position: relative;
+}
+@-moz-document url-prefix() { 
+	.event-details {
+		display: block;	
+		height: 100%;
+	}
 }
 .cal-event {
 	position: absolute;
@@ -187,6 +197,9 @@ strong {
 }
 .event-meta ul li a{
 	color: #393939;
+}
+.mobile-menu {
+	display: none;
 }
 
 /* jQuery UI Calender Overwrites */

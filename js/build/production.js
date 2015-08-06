@@ -14230,14 +14230,14 @@ $( function(){
 						diffMin = Math.ceil( diffMs / ( 1000*60 ) ); // total event duration in minutes
 					
 					// Let's create the output content
-					var output = '<div class="event-details-inner"><div class="cal-event" style="top:' + ( ( startMinutes/ 60 ) * 100 ) + '%;height:' + diffMin + 'px">';
+					var output = '<div class="cal-event" style="top:' + ( ( startMinutes/ 60 ) * 100 ) + '%;height:' + diffMin + 'px">';
 					output += '<p><strong>' + data[i].title + '</strong><span> ' + startHours + ':' + startMinutes + ' to ' + endHours + ':' + endMinutes + '</span></p>';
 					output += '<div class="event-meta"><ul>';
 					output += '<li><a href="#edit">edit</a></li>';
 					output += '<li><a href="#delete">delete</a></li>';
 					output += '<li><a href="#cancel">cancel</a></li>';
 					output += '</ul></div>';
-					output += '</div></div>';
+					output += '</div><div class="clearfix"></div>';
 
 					// Append the output content to respective table row having identifier as hour
 					$( 'tr#' + startHours + ' td.event-details').html( output );
