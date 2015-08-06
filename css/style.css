@@ -15,12 +15,12 @@ strong {
 .row {
 	display: block;
 }
-.clearfix:before,.clearfix:after{
-	content:" ";
-	display:table;
+.clearfix:before, .clearfix:after{
+	content: " ";
+	display: table;
 }
 .clearfix:after{
-	clear:both;
+	clear: both;
 }
 .container {
 	max-width: 980px;
@@ -170,6 +170,10 @@ strong {
 	.event-details {
 		display: block;	
 		height: 100%;
+		min-height: 60px; /* So we have a table cell's height */
+	}
+	.event-details:after {
+		clear: both !important;
 	}
 }
 .cal-event {
