@@ -202,8 +202,15 @@ strong {
 .event-meta ul li a{
 	color: #393939;
 }
-.mobile-menu {
-	display: none;
+@media screen and ( max-width: 500px ){
+	.event-meta ul {
+		margin-top: 10px;
+	}
+	.event-meta ul li {
+		display: block;
+		padding: 0;
+		text-align: right;
+	}
 }
 
 /* jQuery UI Calender Overwrites */
