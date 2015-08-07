@@ -174,7 +174,7 @@ strong {
 	border-right: 2px solid #f2e3df;
 }
 .cal-wrapper tr:last-child td.event-details .cal-event {
-	max-height: 60px;
+	max-height: 120px;
 }
 .cal-wrapper thead, .cal-wrapper tbody tr {
 	border-bottom: 1px solid #e6ebed;
@@ -201,7 +201,7 @@ strong {
 	.event-details {
 		display: block;	
 		height: 100%;
-		min-height: 60px; /* So we have a table cell's height */
+		min-height: 120px; /* So we have a table cell's height */
 	}
 	.event-details:after {
 		clear: both !important;
