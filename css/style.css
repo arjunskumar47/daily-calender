@@ -102,12 +102,13 @@ strong {
 #main-nav {
 	position: relative;
 	z-index: 3;
-}
-#datepicker {
-	display: block;
 	float: none;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
+}
+#datepicker {
+	display: inline-block;
 	padding: 0 7px;
 	height: 32px;
 	color: #525864;
@@ -121,6 +122,33 @@ strong {
 	background-image: linear-gradient(to bottom, #f6f8fa, white);
 	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.5);
 	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.5);
+}
+#icon-nav {
+	display: inline-block;
+}
+#icon-nav li {
+	display: inline-block;
+	padding: 5px 0;
+	margin-left: 3px;
+}
+#icon-nav li a {
+	height: 32px;
+	background: #e54930;
+	border: 1px solid;
+	color: #fff;
+	border-color: #b33323 #ab3123 #982b1f;
+	background-image: -webkit-linear-gradient(top, #f75a3b, #d63b29);
+	background-image: -moz-linear-gradient(top, #f75a3b, #d63b29);
+	background-image: -o-linear-gradient(top, #f75a3b, #d63b29);
+	background-image: linear-gradient(to bottom, #f75a3b, #d63b29);
+	border-radius: 3px;
+	padding: 5px 10px;
+	cursor: pointer;
+	text-shadow: 0 1px 0 rgba( 0,0,0,0.4);
+	text-decoration: none;
+}
+#icon-nav li a:hover {
+	background-image: none;
 }
 .cal-wrapper {
 	margin: 20px 0;
@@ -152,7 +180,7 @@ strong {
 	border-bottom: 1px solid #e6ebed;
 }
 .cal-wrapper tbody tr {
-	height: 60px;
+	height: 120px;
 }
 .cal-wrapper tbody tr td {
 	vertical-align: top;
