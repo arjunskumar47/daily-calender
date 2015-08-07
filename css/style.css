@@ -145,6 +145,9 @@ strong {
 	width: 65px;
 	border-right: 2px solid #f2e3df;
 }
+.cal-wrapper tr:last-child td.event-details {
+	overflow-y: scroll;
+}
 .cal-wrapper thead, .cal-wrapper tbody tr {
 	border-bottom: 1px solid #e6ebed;
 }
