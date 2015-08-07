@@ -5,22 +5,42 @@ $( function(){
 
 	// Initiate jQuery UI Datepicker on input element
 	$( '#datepicker' ).datepicker({
+
+		// List the events when date is changed from calendar
 		onSelect: function( dateText ) {
 			var selectedDate = new Date( this.value );
-			clearTables();
+
+			// Get the events for the selected day
 			getEvents( selectedDate );
 		},
 	});
 
+	// List the events when date is changed from nav button
+	$( '.day-nav' ).click( function() {
+
+		// Get the current date in the datepicker field
+		var date = $( '#datepicker' ).datepicker( 'getDate' );
+
+		// Check if clicked button is prev or next
+		if( this.id === 'prev-day' ) {
+			// Since previous, set a day backward
+			date.setTime( date.getTime() - ( 1000*60*60*24 ));
+		} else {
+			// Since next, set a day forward
+			date.setTime( date.getTime() + ( 1000*60*60*24 ));
+		}
+		// Set the new date in datepicker field
+		$( '#datepicker' ).datepicker( 'setDate', date );
+
+		// Get the events for the selected day
+		getEvents( date );
+
+	});
+
 	function getEvents( selectedDate ) {
 
-		// If on initial page
-		if( !selectedDate ) {
-
-			// Today's date in ms
-			var selectedDate = new Date();
-		}
-
+		// Clear the previous entries
+		clearTables();
 		// Date which is selected and to Display in header
 		var selectedDate = ( selectedDate.getMonth() + 1 ) + '-' + selectedDate.getDate() + '-' + selectedDate.getFullYear();
 		$( '#cal-title-date' ).html( selectedDate );
@@ -48,7 +68,7 @@ $( function(){
 						diffMin = Math.ceil( diffMs / ( 1000*60 ) ); // total event duration in minutes
 					
 					// Let's create the output content
-					var output = '<div class="cal-event" style="top:' + ( ( startMinutes/ 60 ) * 100 ) + '%;height:' + diffMin + 'px">';
+					var output = '<div class="cal-event" style="top:' + ( ( startMinutes/ 60 ) * 100 ) + '%;height:' + diffMin * 2 + 'px">';
 					output += '<p><strong>' + data[i].title + '</strong><span> ' + startHours + ':' + startMinutes + ' to ' + endHours + ':' + endMinutes + '</span></p>';
 					output += '<div class="event-meta"><ul>';
 					output += '<li><a href="#edit">edit</a></li>';
@@ -75,6 +95,11 @@ $( function(){
 		$( 'tr td.event-details' ).html('');
 	}
 
-	// Let's initiat the function on first page load
-	getEvents();
+	// Let's initiate the function on first page load
+	var today =  new Date();
+	getEvents( today );
+
+	// Set current date to the Datepicker input field
+	today = ( ( '0' + ( today.getMonth() + 1 ) ).slice( -2 ) ) + '/' + ( '0' + today.getDate() ).slice( -2 ) + '/' + today.getFullYear();
+	$( '#datepicker' ).val( today );
 });
